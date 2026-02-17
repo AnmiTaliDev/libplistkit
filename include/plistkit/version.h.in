@@ -1,0 +1,26 @@
+/**
+ * @file version.h
+ * @brief Version information for libplistkit.
+ *
+ * Copyright (C) 2026 AnmiTaliDev <anmitalidev@nuros.org>
+ * SPDX-License-Identifier: LGPL-3.0-or-later
+ */
+
+#ifndef PLISTKIT_VERSION_H
+#define PLISTKIT_VERSION_H
+
+#define PLISTKIT_VERSION_MAJOR @VERSION_MAJOR@
+#define PLISTKIT_VERSION_MINOR @VERSION_MINOR@
+#define PLISTKIT_VERSION_PATCH @VERSION_PATCH@
+#define PLISTKIT_VERSION_STRING "@VERSION@"
+
+/**
+ * Check at compile time if the library version is at least the given version.
+ */
+#define PLISTKIT_VERSION_CHECK(major, minor, patch) \
+    ((PLISTKIT_VERSION_MAJOR > (major)) || \
+     (PLISTKIT_VERSION_MAJOR == (major) && PLISTKIT_VERSION_MINOR > (minor)) || \
+     (PLISTKIT_VERSION_MAJOR == (major) && PLISTKIT_VERSION_MINOR == (minor) && \
+      PLISTKIT_VERSION_PATCH >= (patch)))
+
+#endif /* PLISTKIT_VERSION_H */
